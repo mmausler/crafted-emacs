@@ -49,10 +49,10 @@
   "Ensure that PACKAGE is installed on the system, either via
 package.el or Guix depending on the value of
 `crafted-prefer-guix-packages'."
-  (if crafted-prefer-guix-packages
-      (unless (featurep package)
-        (message "Package '%s' does not appear to be installed by Guix: " package))
-    (crafted-package-install-package package)))
+  (unless (and crafted-prefer-guix-packages (locate-library (prin1-to-string package)))
+    (progn
+      (message "Package '%s' does not appear to be installed by Guix: " package)
+      (crafted-package-install-package package))))
 
 ;; Check the system used
 (defconst ON-LINUX   (eq system-type 'gnu/linux))

@@ -18,7 +18,7 @@
 
 
 ;; Install dependencies
-(crafted-package-install-package 'eglot)
+(crafted-ensure-package 'eglot)
 
 ;;; hooks
 (defun crafted-ide--add-eglot-hooks (mode-list)

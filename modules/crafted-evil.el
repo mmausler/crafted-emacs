@@ -36,9 +36,9 @@
   :type 'boolean)
 
 ;; Install dependencies
-(crafted-package-install-package 'evil)
-(crafted-package-install-package 'evil-collection)
-(crafted-package-install-package 'evil-nerd-commenter)
+(crafted-ensure-package 'evil)
+(crafted-ensure-package 'evil-collection)
+(crafted-ensure-package 'evil-nerd-commenter)
 
 ;; Turn on undo-tree globally
 (when (< emacs-major-version 28)

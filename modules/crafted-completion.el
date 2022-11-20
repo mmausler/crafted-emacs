@@ -14,15 +14,15 @@
 
 ;;; Code:
 
-(crafted-package-install-package 'cape)
-(crafted-package-install-package 'consult)
-(crafted-package-install-package 'corfu-doc)
-(crafted-package-install-package 'corfu)
-(crafted-package-install-package 'embark)
-(crafted-package-install-package 'embark-consult)
-(crafted-package-install-package 'marginalia)
-(crafted-package-install-package 'orderless)
-(crafted-package-install-package 'vertico)
+(crafted-ensure-package 'cape)
+(crafted-ensure-package 'consult)
+(crafted-ensure-package 'corfu-doc)
+(crafted-ensure-package 'corfu)
+(crafted-ensure-package 'embark)
+(crafted-ensure-package 'embark-consult)
+(crafted-ensure-package 'marginalia)
+(crafted-ensure-package 'orderless)
+(crafted-ensure-package 'vertico)
 
 (defun crafted-completion/minibuffer-backward-kill (arg)
   "Delete word or delete up to parent folder when completion is a file.

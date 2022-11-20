@@ -31,10 +31,10 @@
 
 ;;; Code:
 
-(crafted-package-install-package 'all-the-icons)
-(crafted-package-install-package 'doom-modeline)
-(crafted-package-install-package 'elisp-demos)
-(crafted-package-install-package 'helpful)
+(crafted-ensure-package 'all-the-icons)
+(crafted-ensure-package 'doom-modeline)
+(crafted-ensure-package 'elisp-demos)
+(crafted-ensure-package 'helpful)
 
 ;;;; Font
 (defun crafted-ui--set-default-font (spec)

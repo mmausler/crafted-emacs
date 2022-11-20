@@ -11,7 +11,7 @@
 
 ;;; Code:
 
-(crafted-package-install-package 'org-appear)
+(crafted-ensure-package 'org-appear)
 
 ;; Return or left-click with mouse follows link
 (customize-set-variable 'org-return-follows-link t)
