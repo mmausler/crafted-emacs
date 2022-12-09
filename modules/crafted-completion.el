@@ -16,8 +16,8 @@
 
 (crafted-ensure-package 'cape)
 (crafted-ensure-package 'consult)
-(crafted-ensure-package 'corfu-doc)
 (crafted-ensure-package 'corfu)
+(crafted-ensure-package 'corfu-terminal)
 (crafted-ensure-package 'embark)
 (crafted-ensure-package 'embark-consult)
 (crafted-ensure-package 'marginalia)
@@ -100,6 +100,17 @@ ARG is the thing being completed in the minibuffer."
 
 
 ;;; Corfu
+(when (eq crafted-package-system 'straight)
+  (add-to-list 'load-path
+               (expand-file-name "straight/build/corfu/extensions"
+                                 straight-base-dir)))
+(require 'corfu-popupinfo)
+
+(require 'corfu)
+
+(unless (display-graphic-p)
+  (require 'corfu-terminal)
+  (corfu-terminal-mode +1))
 
 ;; Setup corfu for popup like completion
 (customize-set-variable 'corfu-cycle t) ; Allows cycling through candidates
@@ -109,11 +120,11 @@ ARG is the thing being completed in the minibuffer."
 (customize-set-variable 'corfu-echo-documentation 0.25) ; Echo docs for current completion option
 
 (global-corfu-mode 1)
-
-(add-hook 'corfu-mode-hook #'corfu-doc-mode)
-(define-key corfu-map (kbd "M-p") #'corfu-doc-scroll-down)
-(define-key corfu-map (kbd "M-n") #'corfu-doc-scroll-up)
-(define-key corfu-map (kbd "M-d") #'corfu-doc-toggle)
+(corfu-popupinfo-mode 1)
+(eldoc-add-command #'corfu-insert)
+(define-key corfu-map (kbd "M-p") #'corfu-popupinfo-scroll-down)
+(define-key corfu-map (kbd "M-n") #'corfu-popupinfo-scroll-up)
+(define-key corfu-map (kbd "M-d") #'corfu-popupinfo-toggle)
 
 
 ;;; Cape
